@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Publisher_1 = require("./models/Publisher");
+const Subscriber_1 = require("./models/Subscriber");
+const PizzaSubscriber_1 = require("./models/PizzaSubscriber");
+const publisher = new Publisher_1.Publisher();
+const subscriberJeff = new Subscriber_1.Subscriber('Jeff');
+publisher.addSubscriber(subscriberJeff);
+const subscriberMartin = new PizzaSubscriber_1.PizzaSubscriber('Martin');
+publisher.addSubscriber(subscriberMartin);
+const subscriberJinn = new Subscriber_1.Subscriber('Jinn');
+publisher.addSubscriber(subscriberJinn);
+publisher.someActions();
+const subscriberCole = new PizzaSubscriber_1.PizzaSubscriber('Cole');
+publisher.addSubscriber(subscriberCole);
+publisher.removeSubscriber(subscriberJeff);
+setTimeout(() => publisher.someActions(), 2000);
