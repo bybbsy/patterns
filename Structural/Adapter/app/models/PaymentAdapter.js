@@ -8,5 +8,12 @@ class PaymentAdapterService {
     submitPayment() {
         this.adaptee.processPayment();
     }
+    getOperationsHistory() {
+        const history = [
+            ...this.adaptee.historyOfWithdrawals(),
+            ...this.adaptee.historyOfPayments()
+        ];
+        return history;
+    }
 }
 exports.PaymentAdapterService = PaymentAdapterService;

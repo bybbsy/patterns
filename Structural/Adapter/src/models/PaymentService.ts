@@ -1,6 +1,4 @@
 export interface IPaymentService {
-    amount: number,
-    currency: string,
     submitPayment: () => void
     getOperationsHistory: () => string[]
 }

@@ -13,5 +13,11 @@ class SberbankService {
         console.log('User: ' + this.user);
         console.log('AccessToken: ' + this.accessToken);
     }
+    historyOfPayments() {
+        return ['Car Tax: 500$', 'Pizza Hut: 200$'];
+    }
+    historyOfWithdrawals() {
+        return ['200$', '5$'];
+    }
 }
 exports.SberbankService = SberbankService;

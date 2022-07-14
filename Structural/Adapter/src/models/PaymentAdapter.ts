@@ -1,11 +1,7 @@
-import { IPaymentService, PaymentService } from "./PaymentService";
-import { ISberbankService, SberbankService } from "./SberbankService";
+import { IPaymentService } from "./PaymentService";
+import { ISberbankService } from "./SberbankService";
 
-export interface IPaymentAdapter {
-    submitPayment: () => void
-}
-
-export class PaymentAdapterService implements IPaymentAdapter {
+export class PaymentAdapterService implements IPaymentService {
     adaptee: ISberbankService
 
     constructor(adaptee: ISberbankService) {
@@ -14,5 +10,14 @@ export class PaymentAdapterService implements IPaymentAdapter {
 
     submitPayment(): void {
         this.adaptee.processPayment()
+    }
+
+    getOperationsHistory() {
+        const history: string[] = [
+            ...this.adaptee.historyOfWithdrawals(),
+            ...this.adaptee.historyOfPayments()
+        ]
+
+        return history
     }
 }

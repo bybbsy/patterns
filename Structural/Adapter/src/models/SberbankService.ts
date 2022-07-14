@@ -3,6 +3,8 @@ export interface ISberbankService {
     user: string
     accessToken: string
     processPayment: () => void
+    historyOfWithdrawals: () => string[]
+    historyOfPayments: () => string[]
 }
 
 export class SberbankService implements ISberbankService {
@@ -23,5 +25,12 @@ export class SberbankService implements ISberbankService {
         console.log('AccessToken: ' + this.accessToken)
     }
 
+    historyOfPayments() {
+        return ['Car Tax: 500$', 'Pizza Hut: 200$']
+    }
+
+    historyOfWithdrawals() {
+        return ['200$', '5$']
+    }
 
 }
